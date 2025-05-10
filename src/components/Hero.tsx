@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
                   hover:bg-gray-800 transition-colors duration-300
                   text-sm uppercase tracking-wider font-medium"
               >
-                Explore Courses!
+                Get in touch
               </a>
             </div>
           </div>

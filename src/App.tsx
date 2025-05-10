@@ -2,9 +2,9 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Services from './components/Services';
-import courses from './components/courses';
-import Team from './components/Team';
+import Feature from './components/Feature'; // Already renamed
+import OurCourses from './components/OurCourses'; // ✅ Rename this file
+import Mentors from './components/Mentors'; // ✅ Rename this file
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -15,9 +15,9 @@ function App() {
       <main>
         <Hero />
         <About />
-        <Services />
-        <courses />
-        <Team />
+        <Feature />
+        <OurCourses />
+        <Mentors />
         <Contact />
       </main>
       <Footer />

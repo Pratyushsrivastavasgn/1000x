@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Have a project in mind? We'd love to hear from you. Reach out and let's create something amazing together.
+            
           </p>
         </div>
         
@@ -88,21 +88,23 @@ const Contact: React.FC = () => {
                 <MapPin size={24} className="mr-4 text-gray-400" />
                 <div>
                   <h4 className="font-medium">Our Location</h4>
-                  <p className="text-gray-600">123 Design Street, Creative City, 10001</p>
+                  <p className="text-gray-600">109A, Ashish Royal Park,
+                                                Pilibhit ByPass, Bareilly
+                                          UP 243006</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <Mail size={24} className="mr-4 text-gray-400" />
                 <div>
                   <h4 className="font-medium">Email Us</h4>
-                  <p className="text-gray-600">hello@f7.design</p>
+                  <p className="text-gray-600">thousandxconsultant@gmail.com</p>
                 </div>
               </div>
               <div className="flex items-start">
                 <Phone size={24} className="mr-4 text-gray-400" />
                 <div>
                   <h4 className="font-medium">Call Us</h4>
-                  <p className="text-gray-600">+1 (123) 456-7890</p>
+                  <p className="text-gray-600">+91 9368610236</p>
                 </div>
               </div>
             </div>

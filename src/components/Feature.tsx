@@ -52,12 +52,12 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-24 px-6">
+    <section id="features" className="py-24 px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Features</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Learn from Experts. Grow with Confidence
+            We offer a comprehensive range of digital services to help brands thrive in the digital landscape.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
