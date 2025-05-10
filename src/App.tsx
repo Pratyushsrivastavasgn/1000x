@@ -2,9 +2,9 @@ import React from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
-import Feature from './components/Feature'; // Already renamed
-import OurCourses from './components/OurCourses'; // ✅ Rename this file
-import Mentors from './components/Mentors'; // ✅ Rename this file
+import Feature from './components/Feature'; 
+import OurCourses from './components/OurCourses';
+import Mentors from './components/Mentors'; 
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 

@@ -55,7 +55,7 @@ const Header: React.FC = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 z-40 bg-white pt-20 px-6 md:hidden">
           <nav className="flex flex-col space-y-6 mt-8">
-            {['About', 'Features', 'Portfolio', 'Team', 'Contact'].map((item) => (   //features is services
+            {['About', 'features', 'Courses', 'Mentors', 'Contact'].map((item) => (   //features is services
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}

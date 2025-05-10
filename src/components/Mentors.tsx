@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface Mentor {
+interface Mentors {
   id: number;
   name: string;
   role: string;
@@ -9,7 +9,7 @@ interface Mentor {
 }
 
 const Mentors: React.FC = () => {
-  const mentors: Mentor[] = [
+  const mentors: Mentors[] = [
     {
       id: 1,
       name: 'CA Manoj Mangal',
@@ -24,10 +24,25 @@ const Mentors: React.FC = () => {
       imageUrl: '/assets/images/pawan.jpg',
       bio: 'CA Pawan Agarwal brings over 25 years of rich experience in practice as a Chartered Accountant, with deep-rooted expertise in Income Tax, Internal Audits, Funding Solutions, and the Stock Market. Known for his practical insights and sharp financial acumen, he has been a trusted advisor to businesses across industries.'
     },
+    {
+      id: 3,
+      name: 'Mrs. Shweta Mangal',
+      role: 'Director',
+      imageUrl: '/assets/images/shweta.jpg',
+      bio: 'Mrs. Shweta Mangal is a dynamic entrepreneur with a strong background in Commerce and a passion for professional development. She co-founded Thousandx with a mission to enable individuals and enterprises to realize their true potential. Before Thousandx, she led a successful venture offering career-focused training in Accountancy and Taxation, which deepened her insight into the evolving needs of finance professionals and students. Through Thousandx, she aims to bridge critical gaps in access to funding, government schemes, and essential industry linkages—empowering the next generation of Chartered Accountants, Company Secretaries, MBAs, and other financial experts.'
+    },
+    {
+      id: 4,
+      name: 'Mrs. Arti Agarwal',
+      role: 'Director',
+      imageUrl: '/assets/images/Arti.jpg',
+      bio: 'Mrs. Arti Agarwal is a seasoned entrepreneur with a strong background in commerce and years of experience in skill development and training. She has successfully led a reputed center in Bareilly, offering career-focused courses in Accountancy, Taxation, and Computers. Known for her commitment to student success, she co-founded Thousandx to extend her vision of empowering aspiring professionals with practical, industry-relevant knowledge.'
+    }
+    
   ];
 
   return (
-    <section id="Mentors" className="py-24 px-6">
+    <section id="mentors" className="py-24 px-6">
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Mentors</h2>
