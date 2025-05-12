@@ -7,6 +7,9 @@ interface Project {
   imageUrl: string;
   description: string;
   link: string;
+  date?: string;
+  time?: string;
+  fees?: string;
 }
 
 interface Webinar {
@@ -30,7 +33,10 @@ const Courses: React.FC = () => {
       title: 'Master zoho books in 3 days.',
       category: 'Accounting',
       imageUrl: '/assets/images/zoho.jpg',
-      description: 'A comprehensive e-commerce solution with a focus on user experience and conversion optimization.\n Date: 23th to 24th May 2025 \n Time: 8 AM to 10 AM\n Fee: 6000',
+      description: 'Learn how to efficiently manage your accounting with Zoho Books-from setup to advanced features like GST filing and foreign transactions.',
+      date: '23 May 2025-25 May 2025',
+      time: '8:00 AM – 10:00 AM',
+      fees: '₹6000',
       link: 'https://payments.cashfree.com/forms/zohomay'
     },
     {

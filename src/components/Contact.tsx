@@ -116,12 +116,12 @@ const Contact: React.FC = () => {
   <h4 className="text-lg font-semibold mb-4">Connect with us</h4>
   <ul className="space-y-2 text-gray-700">
     <li>
-      <a href="https://www.instagram.com/thousandxconsultant" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      <a href="https://www.instagram.com/thousandxconsultant/" target="_blank" rel="noopener noreferrer" className="hover:underline">
         Instagram
       </a>
     </li>
     <li>
-      <a href="https://www.youtube.com/@thousandxconsultant" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      <a href="https://youtube.com/@thousandx18?si=x-5UD8CBJ6OZxKCj" target="_blank" rel="noopener noreferrer" className="hover:underline">
         YouTube
       </a>
     </li>
@@ -131,8 +131,13 @@ const Contact: React.FC = () => {
       </a>
     </li>
     <li>
-      <a href="https://youtube.com/@thousandx18?si=x-5UD8CBJ6OZxKCj" target="_blank" rel="noopener noreferrer" className="hover:underline">
+      <a href="#" target="_blank" rel="noopener noreferrer" className="hover:underline">
         Twitter
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/share/16YVvoZYrd/?mibextid=qi2Omg" target="_blank" rel="noopener noreferrer" className="hover:underline">
+        Facebook
       </a>
     </li>
   </ul>
