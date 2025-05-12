@@ -59,15 +59,15 @@ const Courses: React.FC = () => {
     },
     {
       id: 5,
-      title: 'comming soon',
+      title: 'Coming soon',
       category: 'Investments',
       imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
-      description: 'coming soon.',
+      description: 'Coming soon.',
       link: '/courses/real-estate-platform'
     },
     {
       id: 6,
-      title: 'Comming Soon',
+      title: 'Coming Soon',
       category: 'Technology',
       imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
       description: 'Coming Soon',
@@ -86,10 +86,10 @@ const Courses: React.FC = () => {
     },
     {
       id: 2,
-      title: 'Comming Soon',
+      title: 'Coming Soon',
       type: 'Paid',
       imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
-      description: 'Comming Soon.',
+      description: 'Coming Soon.',
       link: '#'
     },
     {
@@ -102,10 +102,10 @@ const Courses: React.FC = () => {
     },
     {
       id: 4,
-      title: 'Comming soon',
+      title: 'Coming soon',
       type: 'Paid',
       imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
-      description: 'Comming Soon.',
+      description: 'Coming Soon.',
       link: '#'
 
     },

@@ -1,10 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const services = ['About', 'Features', 'Courses', 'Mentors', 'Contact'];
-  const legalLinks = ['Privacy Policy', 'Terms & Conditions', 'Refunds'];
+  
+  const legalLinks = [
+    { label: 'Privacy Policy', link: '/privacy-policy' },
+    { label: 'Terms & Conditions', link: '/terms-and-conditions' },
+    { label: 'Refunds', link: '/refunds' }
+  ];
 
   return (
     <footer className="py-16 px-6 bg-black text-white">
@@ -39,14 +45,14 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-medium mb-4">Legal</h3>
             <ul className="space-y-3">
-              {legalLinks.map((item) => (
-                <li key={item}>
-                  <a
-                    href={`#${item.toLowerCase().replace(/ /g, '-')}`}
+              {legalLinks.map(({ label, link }) => (
+                <li key={label}>
+                  <Link
+                    to={link}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    {item}
-                  </a>
+                    {label}
+                  </Link>
                 </li>
               ))}
             </ul>

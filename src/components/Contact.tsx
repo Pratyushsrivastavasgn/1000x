@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/xjkwawwo', {
+      const response = await fetch('https://formspree.io/f/xkgrqbwa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,6 +111,33 @@ const Contact: React.FC = () => {
                 <div>
                   <h4 className="font-medium">Call Us</h4>
                   <p className="text-gray-600">+91 9368610236</p>
+
+                  <div className="pt-10">
+  <h4 className="text-lg font-semibold mb-4">Connect with us</h4>
+  <ul className="space-y-2 text-gray-700">
+    <li>
+      <a href="https://www.instagram.com/thousandxconsultant" target="_blank" rel="noopener noreferrer" className="hover:underline">
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://www.youtube.com/@thousandxconsultant" target="_blank" rel="noopener noreferrer" className="hover:underline">
+        YouTube
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/company/thousandxconsultant/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+        LinkedIn
+      </a>
+    </li>
+    <li>
+      <a href="https://youtube.com/@thousandx18?si=x-5UD8CBJ6OZxKCj" target="_blank" rel="noopener noreferrer" className="hover:underline">
+        Twitter
+      </a>
+    </li>
+  </ul>
+</div>
+
                 </div>
               </div>
             </div>
