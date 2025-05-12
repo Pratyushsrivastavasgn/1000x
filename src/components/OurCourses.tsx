@@ -15,6 +15,7 @@ interface Webinar {
   type: 'Free' | 'Paid';
   imageUrl: string;
   description: string;
+  link: string;
 }
 
 const Courses: React.FC = () => {
@@ -29,80 +30,100 @@ const Courses: React.FC = () => {
       title: 'Master zoho books in 3 days.',
       category: 'Accounting',
       imageUrl: '/assets/images/zoho.jpg',
-      description: 'A comprehensive e-commerce solution with a focus on user experience and conversion optimization.',
+      description: 'A comprehensive e-commerce solution with a focus on user experience and conversion optimization.\n Date: 23th to 24th May 2025 \n Time: 8 AM to 10 AM\n Fee: 6000',
       link: 'https://payments.cashfree.com/forms/zohomay'
     },
     {
       id: 2,
       title: 'Coming Soon',
-      category: 'UI/UX Design',
-      imageUrl: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg',
+      category: 'Taxation',
+      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
       description: 'Coming Soon',
       link: '#'
     },
     {
       id: 3,
-      title: 'coming soon',
-      category: 'Mobile Design',
-      imageUrl: 'https://images.pexels.com/photos/6633920/pexels-photo-6633920.jpeg',
-      description: 'A mobile application for travelers to discover, plan, and book unique experiences.',
-      link: '/courses/travel-app'
-    }/*,
+      title: 'Coming Soon',
+      category: 'Entrepreneurship',
+      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
+      description: 'Coming Soon',
+      link: '/assets/images/comingsoon.png'
+    },
     {
       id: 4,
-      title: 'Corporate Identity',
+      title: 'Coming Soon',
       category: 'Branding',
-      imageUrl: 'https://images.pexels.com/photos/6444/pencil-typography-black-design.jpg',
-      description: 'Complete brand identity design for a technology startup, including logo, color palette, and guidelines.',
-      link: '/courses/corporate-identity'
+      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
+      description: 'Coming Soon.',
+      link: '/assets/images/comingsoon.png'
     },
     {
       id: 5,
-      title: 'Real Estate Platform',
-      category: 'Web Development',
-      imageUrl: 'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg',
-      description: 'A web platform for real estate listings with advanced search capabilities and virtual tours.',
+      title: 'comming soon',
+      category: 'Investments',
+      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
+      description: 'coming soon.',
       link: '/courses/real-estate-platform'
     },
     {
       id: 6,
-      title: 'Health & Fitness App',
-      category: 'Mobile Design',
-      imageUrl: 'https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg',
-      description: 'A mobile application for fitness tracking, nutrition planning, and workout guidance.',
+      title: 'Comming Soon',
+      category: 'Technology',
+      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
+      description: 'Coming Soon',
       link: '/courses/fitness-app'
-    } */
+    } 
   ];
 
   const webinars: Webinar[] = [
-    /* {
+     {
       id: 1,
-      title: 'Intro to Web Development',
+      title: ' Automation using AI in Excel',
       type: 'Free',
-      imageUrl: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg',
-      description: 'A free introductory webinar covering the basics of modern web development.'
+      imageUrl: 'assets/images/Webinars/2.jpg',
+      description: 'Discover how AI-driven features in Excel can automate complex calculations, forecasting, and reporting. Enhance your productivity with smart functions and real-time insights.',
+      link: 'https://youtube.com/live/kx7Xy3ijS9U?feature=share'
     },
     {
       id: 2,
-      title: 'Advanced React Techniques',
+      title: 'Comming Soon',
       type: 'Paid',
-      imageUrl: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg',
-      description: 'Deep dive into advanced concepts of React, including hooks and performance optimization.'
+      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
+      description: 'Comming Soon.',
+      link: '#'
     },
     {
       id: 3,
-      title: 'UI/UX Principles for Beginners',
+      title: 'Healthy Living made Simple - A Lifestyle Workshop',
       type: 'Free',
-      imageUrl: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg',
-      description: 'Learn the fundamentals of UI/UX design and how to create user-friendly interfaces.'
+      imageUrl: 'assets/images/Webinars/4.jpg',
+      description: 'Join us for a practical session focused on balancing professional demands with personal wellness. Learn simple habits for physical and mental health tailored for busy professionals.',
+      link: ' https://youtu.be/1zuFq2z6Kbg '
     },
     {
       id: 4,
-      title: 'Fullstack App Deployment',
+      title: 'Comming soon',
       type: 'Paid',
-      imageUrl: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg',
-      description: 'Step-by-step webinar on deploying fullstack applications using cloud services.'
-    } */
+      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
+      description: 'Comming Soon.',
+      link: '#'
+
+    },
+    {
+      id: 5,
+      title: 'Banning of Unregulated lending Activities',
+      type: 'Free',
+      imageUrl: 'assets/images/Webinars/3.jpg',
+      description: 'Understand the legal and financial implications of unregulated lending practices. Stay informed on recent regulatory changes and their impact on clients and advisory services.',
+      link: 'https://youtube.com/live/_e25WAK5Qgg'
+    },{
+      id: 6,
+      title: 'Mastering Excel for Financial Analysis',
+      type: 'Free',
+      imageUrl: 'assets/images/Webinars/5.jpg',
+      description: 'Sharpen your Excel skills to perform powerful financial modeling and decision-making. Ideal for CAs aiming to deliver deeper insights through advanced analytical techniques.',
+      link: ' https://youtube.com/live/Wv1keEF2rl0'
+    }   
   ];
 
   const categories = ['All', 'Accounting', 'Taxation', 'Entrepreneurship', 'Investments', 'Technology'];
@@ -211,7 +232,7 @@ const Courses: React.FC = () => {
                   <h3 className="text-xl font-semibold mt-2 mb-3">{webinar.title}</h3>
                   <p className="text-sm text-gray-600">{webinar.description}</p>
                   <a
-                    href="#"
+                    href={webinar.link}
                     className="inline-block mt-4 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-black after:transition-all hover:after:w-full"
                   >
                     Join Now

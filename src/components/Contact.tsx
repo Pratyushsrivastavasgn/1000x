@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 
 interface FormState {
   name: string;
@@ -28,19 +27,10 @@ const Contact: React.FC = () => {
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
+    if (!formData.email.trim()) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -51,32 +41,39 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (validate()) {
-      setIsSubmitting(true);
+    if (!validate()) return;
 
-      emailjs.send(
-        'service_cah8fok', // <-- replace with your actual service ID
-        'template_uo3fic3', // <-- replace with your actual template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xjkwawwo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        'wbwA1RpTUq91zKHov' // <-- replace with your actual public key
-      ).then(() => {
-        setIsSubmitting(false);
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
         setIsSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
-
         setTimeout(() => setIsSubmitted(false), 5000);
-      }).catch((error) => {
-        console.error('EmailJS error:', error);
-        setIsSubmitting(false);
-        alert('Failed to send message. Please try again later.');
-      });
+      } else {
+        throw new Error('Something went wrong.');
+      }
+    } catch (error: any) {
+      console.error('Formspree error:', error);
+      alert(`Failed to send message: ${error.message}`);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -91,6 +88,7 @@ const Contact: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-16">
+          {/* Contact Info Section */}
           <div>
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
             <div className="space-y-6">
@@ -98,9 +96,7 @@ const Contact: React.FC = () => {
                 <MapPin size={24} className="mr-4 text-gray-400" />
                 <div>
                   <h4 className="font-medium">Our Location</h4>
-                  <p className="text-gray-600">
-                    109A, Ashish Royal Park, Pilibhit ByPass, Bareilly, UP 243006
-                  </p>
+                  <p className="text-gray-600">109A, Ashish Royal Park, Pilibhit ByPass, Bareilly, UP 243006</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -118,23 +114,9 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            <div className="mt-12">
-              <h3 className="text-2xl font-semibold mb-6">Follow Us</h3>
-              <div className="flex space-x-4">
-                {['Twitter', 'Instagram', 'LinkedIn', 'Dribbble'].map((social) => (
-                  <a
-                    key={social}
-                    href="#"
-                    className="text-gray-500 hover:text-black transition-colors"
-                  >
-                    {social}
-                  </a>
-                ))}
-              </div>
-            </div>
           </div>
 
+          {/* Form Section */}
           <div>
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
@@ -145,57 +127,53 @@ const Contact: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Name Field */}
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                    Name
-                  </label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border ${errors.name ? 'border-red-300' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-black/20 transition-colors`}
+                    className={`w-full px-4 py-3 border ${errors.name ? 'border-red-300' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-black/20`}
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                 </div>
 
+                {/* Email Field */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email
-                  </label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                   <input
                     type="email"
                     id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border ${errors.email ? 'border-red-300' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-black/20 transition-colors`}
+                    className={`w-full px-4 py-3 border ${errors.email ? 'border-red-300' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-black/20`}
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                 </div>
 
+                {/* Message Field */}
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                    Message
-                  </label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                   <textarea
                     id="message"
                     name="message"
                     rows={6}
                     value={formData.message}
                     onChange={handleChange}
-                    className={`w-full px-4 py-3 border ${errors.message ? 'border-red-300' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-black/20 transition-colors`}
+                    className={`w-full px-4 py-3 border ${errors.message ? 'border-red-300' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-black/20`}
                   />
                   {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
                 </div>
 
+                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className={`w-full py-3 px-6 text-white bg-black hover:bg-gray-800 transition-colors 
-                    text-sm uppercase tracking-wider font-medium
-                    ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  className={`w-full py-3 px-6 text-white bg-black hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider font-medium ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
