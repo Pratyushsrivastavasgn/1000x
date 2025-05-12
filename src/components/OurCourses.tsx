@@ -42,7 +42,7 @@ const Courses: React.FC = () => {
     },
     {
       id: 3,
-      title: 'Travel App',
+      title: 'coming soon',
       category: 'Mobile Design',
       imageUrl: 'https://images.pexels.com/photos/6633920/pexels-photo-6633920.jpeg',
       description: 'A mobile application for travelers to discover, plan, and book unique experiences.',

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 
 interface FormState {
   name: string;
@@ -58,8 +58,8 @@ const Contact: React.FC = () => {
       setIsSubmitting(true);
 
       emailjs.send(
-        'service_inuxgtf', // <-- replace with your actual service ID
-        'template_0xhbrrj', // <-- replace with your actual template ID
+        'service_cah8fok', // <-- replace with your actual service ID
+        'template_uo3fic3', // <-- replace with your actual template ID
         {
           from_name: formData.name,
           from_email: formData.email,
