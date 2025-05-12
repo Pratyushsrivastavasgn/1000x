@@ -184,6 +184,9 @@ const Courses: React.FC = () => {
                   <span className="text-xs text-gray-500 uppercase tracking-wider">{project.category}</span>
                   <h3 className="text-xl font-semibold mt-2 mb-3">{project.title}</h3>
                   <p className="text-gray-600 text-sm">{project.description}</p>
+                  <p className="text-gray-600 text-sm">{project.date}</p>
+                  <p className="text-gray-600 text-sm">{project.time}</p>
+                  <p className="text-gray-600 text-sm">{project.fees}</p>
                   <a
                     href={project.link}
                     className="inline-block mt-4 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-black after:transition-all hover:after:w-full"
