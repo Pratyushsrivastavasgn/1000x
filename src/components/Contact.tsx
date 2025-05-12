@@ -49,7 +49,7 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/xjkwawwo', {
+      const response = await fetch('https://formspree.io/f/xkgrqbwa', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
