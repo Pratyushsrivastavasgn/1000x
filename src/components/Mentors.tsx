@@ -61,7 +61,8 @@ const Mentors: React.FC = () => {
                 <img 
                   src={mentor.imageUrl} 
                   alt={mentor.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 m-<100px>
+"
                 />
               </div>
               <h3 className="text-xl font-semibold">{mentor.name}</h3>

@@ -32,13 +32,13 @@ const Courses: React.FC = () => {
       description: 'A comprehensive e-commerce solution with a focus on user experience and conversion optimization.',
       link: 'https://payments.cashfree.com/forms/zohomay'
     },
-    /* {
+    {
       id: 2,
-      title: 'Finance Dashboard',
+      title: 'Coming Soon',
       category: 'UI/UX Design',
       imageUrl: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg',
-      description: 'An intuitive dashboard for financial data visualization and analytics.',
-      link: '/courses/finance-dashboard'
+      description: 'Coming Soon',
+      link: '#'
     },
     {
       id: 3,
@@ -47,7 +47,7 @@ const Courses: React.FC = () => {
       imageUrl: 'https://images.pexels.com/photos/6633920/pexels-photo-6633920.jpeg',
       description: 'A mobile application for travelers to discover, plan, and book unique experiences.',
       link: '/courses/travel-app'
-    },
+    }/*,
     {
       id: 4,
       title: 'Corporate Identity',
@@ -105,7 +105,7 @@ const Courses: React.FC = () => {
     } */
   ];
 
-  const categories = ['All', 'Accounting', 'Mentorship', 'Alumni Talks', 'Opportunities'];
+  const categories = ['All', 'Accounting', 'Taxation', 'Entrepreneurship', 'Investments', 'Technology'];
   const filteredProjects = activeFilter === 'All'
     ? projects
     : projects.filter(project => project.category === activeFilter);

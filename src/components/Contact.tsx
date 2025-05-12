@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 interface FormState {
   name: string;
@@ -19,28 +20,28 @@ const Contact: React.FC = () => {
     email: '',
     message: ''
   });
-  
+
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
-    
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -50,23 +51,32 @@ const Contact: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (validate()) {
       setIsSubmitting(true);
-      
-      // Simulate API call
-      setTimeout(() => {
+
+      emailjs.send(
+        'service_inuxgtf', // <-- replace with your actual service ID
+        'template_0xhbrrj', // <-- replace with your actual template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        'wbwA1RpTUq91zKHov' // <-- replace with your actual public key
+      ).then(() => {
         setIsSubmitting(false);
         setIsSubmitted(true);
         setFormData({ name: '', email: '', message: '' });
-        
-        // Reset success message after 5 seconds
-        setTimeout(() => {
-          setIsSubmitted(false);
-        }, 5000);
-      }, 1500);
+
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }).catch((error) => {
+        console.error('EmailJS error:', error);
+        setIsSubmitting(false);
+        alert('Failed to send message. Please try again later.');
+      });
     }
   };
 
@@ -76,10 +86,10 @@ const Contact: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            
+            We'd love to hear from you! Fill out the form below to send us a message.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-16">
           <div>
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
@@ -88,9 +98,9 @@ const Contact: React.FC = () => {
                 <MapPin size={24} className="mr-4 text-gray-400" />
                 <div>
                   <h4 className="font-medium">Our Location</h4>
-                  <p className="text-gray-600">109A, Ashish Royal Park,
-                                                Pilibhit ByPass, Bareilly
-                                          UP 243006</p>
+                  <p className="text-gray-600">
+                    109A, Ashish Royal Park, Pilibhit ByPass, Bareilly, UP 243006
+                  </p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -108,14 +118,14 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-12">
               <h3 className="text-2xl font-semibold mb-6">Follow Us</h3>
               <div className="flex space-x-4">
                 {['Twitter', 'Instagram', 'LinkedIn', 'Dribbble'].map((social) => (
-                  <a 
-                    key={social} 
-                    href="#" 
+                  <a
+                    key={social}
+                    href="#"
                     className="text-gray-500 hover:text-black transition-colors"
                   >
                     {social}
@@ -124,10 +134,10 @@ const Contact: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-            
+
             {isSubmitted ? (
               <div className="bg-green-50 border border-green-200 text-green-800 rounded-lg p-6">
                 <h4 className="font-semibold text-lg mb-2">Thank you!</h4>
@@ -149,7 +159,7 @@ const Contact: React.FC = () => {
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                 </div>
-                
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                     Email
@@ -164,7 +174,7 @@ const Contact: React.FC = () => {
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Message
@@ -179,7 +189,7 @@ const Contact: React.FC = () => {
                   />
                   {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
