@@ -10,7 +10,7 @@ interface Project {
   date?: string;
   time?: string;
   fees?: string;
-  isRegistrationClosed?: boolean; // optional property
+  isRegistrationClosed?: boolean;
 }
 
 interface Webinar {
@@ -27,7 +27,7 @@ const Courses: React.FC = () => {
   const [webinarFilter, setWebinarFilter] = useState<'Free' | 'Paid'>('Free');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState<string | null>(null);
-  const [isClosedModalOpen, setIsClosedModalOpen] = useState(false); // registration closed modal
+  const [isClosedModalOpen, setIsClosedModalOpen] = useState(false);
 
   const projects: Project[] = [
     {
@@ -39,7 +39,8 @@ const Courses: React.FC = () => {
       date: '23 May 2025-25 May 2025',
       time: '8:00 AM – 10:00 AM',
       fees: '₹6000',
-      link: 'https://rzp.io/rzp/GYDtVJZo'
+      link: 'https://rzp.io/rzp/GYDtVJZo',
+      isRegistrationClosed: true
     },
     {
       id: 2,
@@ -80,13 +81,13 @@ const Courses: React.FC = () => {
       imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
       description: 'Coming Soon',
       link: '/courses/fitness-app'
-    } 
+    }
   ];
 
   const webinars: Webinar[] = [
     {
       id: 1,
-      title: ' Automation using AI in Excel',
+      title: 'Automation using AI in Excel',
       type: 'Free',
       imageUrl: 'assets/images/Webinars/2.jpg',
       description: 'Discover how AI-driven features in Excel can automate complex calculations...',
@@ -131,7 +132,7 @@ const Courses: React.FC = () => {
       imageUrl: 'assets/images/Webinars/5.jpg',
       description: 'Sharpen your Excel skills to perform powerful financial modeling...',
       link: ' https://youtube.com/live/Wv1keEF2rl0'
-    }   
+    }
   ];
 
   const categories = ['All', 'Accounting', 'Taxation', 'Entrepreneurship', 'Investments', 'Technology'];
@@ -281,14 +282,14 @@ const Courses: React.FC = () => {
         </div>
       )}
 
-      {/* Registration Closed Modal */}
+      {/* Registration Closed Modal with animation */}
       {isClosedModalOpen && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 transition-opacity duration-300 ease-in-out"
           onClick={() => setIsClosedModalOpen(false)}
         >
           <div
-            className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-auto text-center"
+            className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center transform scale-100 transition-transform duration-300 ease-in-out"
             onClick={(e) => e.stopPropagation()}
           >
             <h3 className="text-lg font-semibold mb-2">Registrations Closed</h3>
@@ -297,7 +298,7 @@ const Courses: React.FC = () => {
             </p>
             <button
               onClick={() => setIsClosedModalOpen(false)}
-              className="px-4 py-2 text-sm bg-black text-white rounded hover:bg-gray-800"
+              className="px-4 py-2 text-sm bg-black text-white rounded hover:bg-gray-800 transition duration-200"
             >
               Close
             </button>
