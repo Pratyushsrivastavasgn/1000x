@@ -10,6 +10,7 @@ interface Project {
   date?: string;
   time?: string;
   fees?: string;
+  isRegistrationClosed?: boolean; // NEW
 }
 
 interface Webinar {
@@ -26,6 +27,7 @@ const Courses: React.FC = () => {
   const [webinarFilter, setWebinarFilter] = useState<'Free' | 'Paid'>('Free');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState<string | null>(null);
+  const [isClosedModalOpen, setIsClosedModalOpen] = useState(false); // NEW
 
   const projects: Project[] = [
     {
@@ -33,11 +35,12 @@ const Courses: React.FC = () => {
       title: 'Master zoho books in 3 days.',
       category: 'Accounting',
       imageUrl: '/assets/images/zoho.jpg',
-      description: 'Learn how to efficiently manage your accounting with Zoho Books-from setup to advanced features like GST filing and foreign transactions.',
+      description: 'Learn how to efficiently manage your accounting with Zoho Books...',
       date: '23 May 2025-25 May 2025',
       time: '8:00 AM – 10:00 AM',
       fees: '₹6000',
-      link: 'https://payments.cashfree.com/forms/zohomay'
+      link: 'https://payments.cashfree.com/forms/zohomay',
+      isRegistrationClosed: true // NEW
     },
     {
       id: 2,
@@ -82,12 +85,12 @@ const Courses: React.FC = () => {
   ];
 
   const webinars: Webinar[] = [
-     {
+    {
       id: 1,
       title: ' Automation using AI in Excel',
       type: 'Free',
       imageUrl: 'assets/images/Webinars/2.jpg',
-      description: 'Discover how AI-driven features in Excel can automate complex calculations, forecasting, and reporting. Enhance your productivity with smart functions and real-time insights.',
+      description: 'Discover how AI-driven features in Excel can automate complex calculations...',
       link: 'https://youtube.com/live/kx7Xy3ijS9U?feature=share'
     },
     {
@@ -103,7 +106,7 @@ const Courses: React.FC = () => {
       title: 'Healthy Living made Simple - A Lifestyle Workshop',
       type: 'Free',
       imageUrl: 'assets/images/Webinars/4.jpg',
-      description: 'Join us for a practical session focused on balancing professional demands with personal wellness. Learn simple habits for physical and mental health tailored for busy professionals.',
+      description: 'Join us for a practical session focused on wellness...',
       link: ' https://youtu.be/1zuFq2z6Kbg '
     },
     {
@@ -113,21 +116,21 @@ const Courses: React.FC = () => {
       imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
       description: 'Coming Soon.',
       link: '#'
-
     },
     {
       id: 5,
       title: 'Banning of Unregulated lending Activities',
       type: 'Free',
       imageUrl: 'assets/images/Webinars/3.jpg',
-      description: 'Understand the legal and financial implications of unregulated lending practices. Stay informed on recent regulatory changes and their impact on clients and advisory services.',
+      description: 'Understand the legal and financial implications of unregulated lending practices...',
       link: 'https://youtube.com/live/_e25WAK5Qgg'
-    },{
+    },
+    {
       id: 6,
       title: 'Mastering Excel for Financial Analysis',
       type: 'Free',
       imageUrl: 'assets/images/Webinars/5.jpg',
-      description: 'Sharpen your Excel skills to perform powerful financial modeling and decision-making. Ideal for CAs aiming to deliver deeper insights through advanced analytical techniques.',
+      description: 'Sharpen your Excel skills to perform powerful financial modeling...',
       link: ' https://youtube.com/live/Wv1keEF2rl0'
     }   
   ];
@@ -141,6 +144,7 @@ const Courses: React.FC = () => {
 
   return (
     <>
+      {/* Courses Section */}
       <section id="courses" className="py-24 px-6 bg-gray-50">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
@@ -165,18 +169,15 @@ const Courses: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
-              >
+              <div key={project.id} className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="relative overflow-hidden aspect-video">
                   <img
                     src={project.imageUrl}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onClick={() => {
-                      setModalImage(project.imageUrl); // Set the image in the modal
-                      setIsModalOpen(true); // Open the modal
+                      setModalImage(project.imageUrl);
+                      setIsModalOpen(true);
                     }}
                   />
                 </div>
@@ -187,12 +188,21 @@ const Courses: React.FC = () => {
                   <p className="text-gray-600 text-sm">{project.date}</p>
                   <p className="text-gray-600 text-sm">{project.time}</p>
                   <p className="text-gray-600 text-sm">{project.fees}</p>
-                  <a
-                    href={project.link}
-                    className="inline-block mt-4 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-black after:transition-all hover:after:w-full"
-                  >
-                    Enroll Now
-                  </a>
+                  {project.isRegistrationClosed ? (
+                    <button
+                      onClick={() => setIsClosedModalOpen(true)}
+                      className="inline-block mt-4 text-sm font-medium text-red-500 hover:underline"
+                    >
+                      Registration Closed
+                    </button>
+                  ) : (
+                    <a
+                      href={project.link}
+                      className="inline-block mt-4 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-black after:transition-all hover:after:w-full"
+                    >
+                      Enroll Now
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
@@ -200,7 +210,7 @@ const Courses: React.FC = () => {
         </div>
       </section>
 
-      {/* Webinar Section */}
+      {/* Webinars Section */}
       <section id="webinars" className="py-24 px-6 bg-white">
         <div className="container mx-auto max-w-5xl">
           <div className="text-center mb-16">
@@ -213,8 +223,8 @@ const Courses: React.FC = () => {
               <button
                 key={type}
                 onClick={() => setWebinarFilter(type as 'Free' | 'Paid')}
-                className={`px-6 py-2 text-sm rounded-full border 
-                  ${webinarFilter === type
+                className={`px-6 py-2 text-sm rounded-full border ${
+                  webinarFilter === type
                     ? 'bg-black text-white'
                     : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-100'}`}
               >
@@ -225,16 +235,16 @@ const Courses: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredWebinars.map((webinar) => (
-              <div
-                key={webinar.id}
-                className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300"
-              >
+              <div key={webinar.id} className="group bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="relative overflow-hidden aspect-video">
                   <img
                     src={webinar.imageUrl}
                     alt={webinar.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    onClick={() => setModalImage(webinar.imageUrl)} // Open modal on click
+                    onClick={() => {
+                      setModalImage(webinar.imageUrl);
+                      setIsModalOpen(true);
+                    }}
                   />
                 </div>
                 <div className="p-6">
@@ -253,21 +263,45 @@ const Courses: React.FC = () => {
         </div>
       </section>
 
-      {/* Modal to display the image */}
+      {/* Modal for course/webinar image */}
       {isModalOpen && modalImage && (
         <div
           className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
-          onClick={() => setIsModalOpen(false)} // Close the modal when clicked outside
+          onClick={() => setIsModalOpen(false)}
         >
           <div
             className="bg-white p-4 rounded-lg"
-            onClick={(e) => e.stopPropagation()} // Prevent modal from closing when clicking the image
+            onClick={(e) => e.stopPropagation()}
           >
             <img
               src={modalImage}
               alt="Course or Webinar Image"
-              className="max-w-[70vh] max-h-[70vw] object-contain" // Make image smaller
+              className="max-w-[70vh] max-h-[70vw] object-contain"
             />
+          </div>
+        </div>
+      )}
+
+      {/* Registration Closed Modal */}
+      {isClosedModalOpen && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          onClick={() => setIsClosedModalOpen(false)}
+        >
+          <div
+            className="bg-white p-6 rounded-lg shadow-lg max-w-sm mx-auto text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-lg font-semibold mb-2">Registrations Closed</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Sorry, registrations for this course are currently closed.
+            </p>
+            <button
+              onClick={() => setIsClosedModalOpen(false)}
+              className="px-4 py-2 text-sm bg-black text-white rounded hover:bg-gray-800"
+            >
+              Close
+            </button>
           </div>
         </div>
       )}
