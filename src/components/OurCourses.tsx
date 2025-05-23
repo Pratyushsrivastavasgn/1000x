@@ -39,8 +39,7 @@ const Courses: React.FC = () => {
       date: '23 May 2025-25 May 2025',
       time: '8:00 AM – 10:00 AM',
       fees: '₹6000',
-      link: 'https://payments.cashfree.com/forms/zohomay',
-      isRegistrationClosed: true // NEW
+      link: 'https://rzp.io/rzp/GYDtVJZo'
     },
     {
       id: 2,
