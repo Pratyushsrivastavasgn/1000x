@@ -10,7 +10,7 @@ interface Project {
   date?: string;
   time?: string;
   fees?: string;
-  isRegistrationClosed?: boolean; // NEW
+  isRegistrationClosed?: boolean; // optional property
 }
 
 interface Webinar {
@@ -27,7 +27,7 @@ const Courses: React.FC = () => {
   const [webinarFilter, setWebinarFilter] = useState<'Free' | 'Paid'>('Free');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalImage, setModalImage] = useState<string | null>(null);
-  const [isClosedModalOpen, setIsClosedModalOpen] = useState(false); // NEW
+  const [isClosedModalOpen, setIsClosedModalOpen] = useState(false); // registration closed modal
 
   const projects: Project[] = [
     {
