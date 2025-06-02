@@ -85,55 +85,86 @@ const Courses: React.FC = () => {
   ];
 
   const webinars: Webinar[] = [
-    {
-      id: 1,
-      title: 'Automation using AI in Excel',
-      type: 'Free',
-      imageUrl: 'assets/images/Webinars/2.jpg',
-      description: 'Discover how AI-driven features in Excel can automate complex calculations...',
-      link: 'https://youtube.com/live/kx7Xy3ijS9U?feature=share'
-    },
-    {
-      id: 2,
-      title: 'Coming Soon',
-      type: 'Paid',
-      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
-      description: 'Coming Soon.',
-      link: '#'
-    },
-    {
-      id: 3,
-      title: 'Healthy Living made Simple - A Lifestyle Workshop',
-      type: 'Free',
-      imageUrl: 'assets/images/Webinars/4.jpg',
-      description: 'Join us for a practical session focused on wellness...',
-      link: ' https://youtu.be/1zuFq2z6Kbg '
-    },
-    {
-      id: 4,
-      title: 'Coming soon',
-      type: 'Paid',
-      imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
-      description: 'Coming Soon.',
-      link: '#'
-    },
-    {
-      id: 5,
-      title: 'Banning of Unregulated lending Activities',
-      type: 'Free',
-      imageUrl: 'assets/images/Webinars/3.jpg',
-      description: 'Understand the legal and financial implications of unregulated lending practices...',
-      link: 'https://youtube.com/live/_e25WAK5Qgg'
-    },
-    {
-      id: 6,
-      title: 'Mastering Excel for Financial Analysis',
-      type: 'Free',
-      imageUrl: 'assets/images/Webinars/5.jpg',
-      description: 'Sharpen your Excel skills to perform powerful financial modeling...',
-      link: ' https://youtube.com/live/Wv1keEF2rl0'
-    }
-  ];
+  {
+    id: 1,
+    title: 'Automation using AI in Excel',
+    type: 'Free',
+    imageUrl: 'assets/images/Webinars/2.jpg',
+    description: `Discover how AI-driven features in Excel can automate complex calculations and save you hours of manual work.`,
+    link: 'https://youtube.com/live/kx7Xy3ijS9U?feature=share'
+
+  },
+  {
+    id: 2,
+    title: 'ISD Practical Case Studies under GST',
+    type: 'Paid',
+    imageUrl: 'assets/images/Webinars/GST.jpg',
+    description: `📢 Join Our Exclusive GST Webinar!
+Topic: ISD Practical Case Studies under GST
+📅 Date: 6th June 2025 (Friday)
+🕖 Time: 7:00 PM
+💻 Mode: Zoom
+💰 Fee: ₹99/-
+🎙 Speaker: CA Praveen Sharma
+Renowned GST Consultant & Faculty
+✅ Real Case Studies
+✅ ISD vs Cross-charge
+✅ ITC Allocation & Compliance
+✅ Q&A with GST Expert`,
+    link: 'https://rzp.io/rzp/iL0J9rD'
+  },
+  {
+    id: 3,
+    title: 'Healthy Living made Simple - A Lifestyle Workshop',
+    type: 'Free',
+    imageUrl: 'assets/images/Webinars/4.jpg',
+    description: `Join us for a practical session focused on wellness, healthy habits, and simple lifestyle changes you can start today.`,
+    link: 'https://youtu.be/1zuFq2z6Kbg'
+  },
+  {
+    id: 4,
+    title: 'Coming Soon',
+    type: 'Paid',
+    imageUrl: 'https://tailwindflex.com/storage/thumbnails/simple-coming-soon-page-2/canvas.min.webp?v=1',
+    description: `Coming Soon.`,
+    link: 'https://rzp.io/rzp/iL0J9rD'
+  },
+  {
+    id: 5,
+    title: 'Banning of Unregulated Lending Activities',
+    type: 'Free',
+    imageUrl: 'assets/images/Webinars/3.jpg',
+    description: `Understand the legal and financial implications of unregulated lending practices and the latest government actions.`,
+    link: 'https://youtube.com/live/_e25WAK5Qgg'
+  },
+  {
+    id: 6,
+    title: 'Mastering Excel for Financial Analysis',
+    type: 'Free',
+    imageUrl: 'assets/images/Webinars/5.jpg',
+    description: `Sharpen your Excel skills to perform powerful financial modeling, analysis, and reporting with hands-on examples.`,
+    link: 'https://youtube.com/live/Wv1keEF2rl0'
+  },
+  {
+    id: 7,
+    title: 'linkedin for CA Professionals',
+    type: 'Free',
+    imageUrl: 'assets/images/Webinars/LinkedIn.jpg',
+    description: `In this exclusive webinar hosted by Thousandx, LinkedIn Growth Strategist Mr. Dheeraj Pandey shares powerful insights on how Chartered Accountants and firm owners can ethically build their brand, grow their network, and attract clients through LinkedIn—without violating ICAI’s Code of Ethics.
+
+📌 What you'll learn:
+
+Why LinkedIn is essential for CA firm owners
+How to optimize your LinkedIn profile for visibility and trust
+Creating a content strategy that actually works
+Ethical lead generation techniques using LinkedIn
+Real-world tips from Dheeraj’s experience working with US & Canadian accounting firms
+
+🔗 Whether you're a CA looking to scale your practice or just starting your personal brand journey, this session is packed with actionable takeaways..`,
+    link: 'https://www.youtube.com/live/SUCFOZe5exw?si=gxbFELP-2mYQhrNm'
+  }
+];
+
 
   const categories = ['All', 'Accounting', 'Taxation', 'Entrepreneurship', 'Investments', 'Technology'];
   const filteredProjects = activeFilter === 'All'
@@ -249,7 +280,7 @@ const Courses: React.FC = () => {
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mt-2 mb-3">{webinar.title}</h3>
-                  <p className="text-sm text-gray-600">{webinar.description}</p>
+                  <p className="text-sm text-gray-600 whitespace-per-line">{webinar.description}</p>
                   <a
                     href={webinar.link}
                     className="inline-block mt-4 text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-black after:transition-all hover:after:w-full"
