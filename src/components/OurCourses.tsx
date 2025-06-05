@@ -150,17 +150,8 @@ Renowned GST Consultant & Faculty
     title: 'linkedin for CA Professionals',
     type: 'Free',
     imageUrl: 'assets/images/Webinars/LinkedIn.jpg',
-    description: `In this exclusive webinar hosted by Thousandx, LinkedIn Growth Strategist Mr. Dheeraj Pandey shares powerful insights on how Chartered Accountants and firm owners can ethically build their brand, grow their network, and attract clients through LinkedIn—without violating ICAI’s Code of Ethics.
-
-📌 What you'll learn:
-
-Why LinkedIn is essential for CA firm owners
-How to optimize your LinkedIn profile for visibility and trust
-Creating a content strategy that actually works
-Ethical lead generation techniques using LinkedIn
-Real-world tips from Dheeraj’s experience working with US & Canadian accounting firms
-
-🔗 Whether you're a CA looking to scale your practice or just starting your personal brand journey, this session is packed with actionable takeaways..`,
+    description: `Learn how CAs can ethically build their brand, grow their network, and attract clients on LinkedIn—without violating ICAI’s Code of Ethics.
+Featuring expert tips from LinkedIn strategist Dheeraj Pandey with real-world insights from US & Canadian firms.`,
     link: 'https://www.youtube.com/live/SUCFOZe5exw?si=gxbFELP-2mYQhrNm'
   }
 ];
